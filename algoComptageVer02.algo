@@ -1,0 +1,37 @@
+ALGORITHM compteMotVoyCar
+
+VAR
+    i, cpteCar,cpteMot,cpteVoy : INTEGER :=0;
+    texte :STRING;
+    reprendre:CHAR;
+BEGIN
+
+    REPEAT
+        Write("Entrez une phrase")
+        Read(texte)
+
+        FOR i FROM 0 TO lenght(texte)-1 STEP 1  DO
+                //Compte le nombre de caracteres de la phrase
+                cpteCar = cpteCar+1;
+                
+                IF (texte[i] == " " or texte[i]==".") THEN
+                    //Compte le nombre de mots de la phrase
+                    cpteMot = cpteMot+1;
+                END_IF
+
+                IF (texte[i] == "a" or texte[i]=="e" or texte[i] == "i" or texte[i]=="o" or texte[i] == "u" or texte[i]=="y") THEN
+                    //Compte le nombre de voyelles de la phrase
+                    cpteVoy = cpteVoy+1;
+                END_IF
+
+        END_FOR
+
+        Write("Votre phrase contient : ", nbreCar, "caratère(s)")
+        Write("Votre phrase contient : ", nbreMot, "mot(s)")
+        Write("Votre phrase contient : ", nbreVoy, "voyelle(s)")
+        Write("Tapez N pour quitter et Y pour recommencer")
+        Read(reprendre)
+
+    UNTIL (reprendre = "N")
+
+END
