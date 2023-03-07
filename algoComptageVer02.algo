@@ -12,8 +12,11 @@ BEGIN
 
         FOR i FROM 0 TO lenght(texte)-1 STEP 1  DO
                 //Compte le nombre de caracteres de la phrase
-                cpteCar = cpteCar+1;
                 
+                IF (texte[i] !== " ") THEN
+                    cpteCar = cpteCar+1;
+                END_IF
+
                 IF (texte[i] == " " or texte[i]==".") THEN
                     //Compte le nombre de mots de la phrase
                     cpteMot = cpteMot+1;
@@ -26,9 +29,9 @@ BEGIN
 
         END_FOR
 
-        Write("Votre phrase contient : ", nbreCar, "caratère(s)")
-        Write("Votre phrase contient : ", nbreMot, "mot(s)")
-        Write("Votre phrase contient : ", nbreVoy, "voyelle(s)")
+        Write("Votre phrase contient : ", cpteCar, "caratère(s)")
+        Write("Votre phrase contient : ", cpteMot, "mot(s)")
+        Write("Votre phrase contient : ", cpteVoy, "voyelle(s)")
         Write("Tapez N pour quitter et Y pour recommencer")
         Read(reprendre)
 
